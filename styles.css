@@ -119,6 +119,10 @@ p { margin: 0 0 1em; }
   color: #f8f5ee;
 }
 
+.section-closing .lead {
+  color: #f3efe7;
+}
+
 .section-closing em {
   color: var(--accent-soft);
 }
