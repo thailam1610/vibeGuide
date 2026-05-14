@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vibe Coding với Antigravity — Bắt đầu từ con số 0</title>
+  <meta name="description" content="Hướng dẫn cơ bản về vibe coding cho người mới hoàn toàn — tiếp cận Antigravity, hiểu Frontend/Backend/Database, và biến ý tưởng hàng ngày thành sản phẩm." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2 L4 22 L12 17 L20 22 Z" fill="currentColor" stroke="none" />
+          </svg>
+        </span>
+        <span class="brand-name">vibe.guide</span>
+      </a>
+      <div class="nav-links">
+        <a href="#vibe">Vibe coding</a>
+        <a href="#stack">3 khối</a>
+        <a href="#idea">Từ ý tưởng</a>
+        <a href="#examples">Ý tưởng</a>
+        <a href="#start">Bắt đầu</a>
+        <a href="#share">Chia sẻ</a>
+      </div>
+      <a href="#start" class="nav-cta">Bắt đầu ngay →</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-shapes" aria-hidden="true">
+      <span class="shape shape-blob"></span>
+      <span class="shape shape-circle-coral"></span>
+      <span class="shape shape-sand-half"></span>
+      <span class="shape shape-triangle"></span>
+      <span class="shape shape-squiggle">
+        <svg viewBox="0 0 100 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+          <path d="M2 10 Q 14 2, 26 10 T 50 10 T 74 10 T 98 10" />
+        </svg>
+      </span>
+      <span class="shape shape-dot-grid">
+        <svg viewBox="0 0 60 60" fill="currentColor" aria-hidden="true">
+          <circle cx="6" cy="6" r="2"/><circle cx="22" cy="6" r="2"/><circle cx="38" cy="6" r="2"/><circle cx="54" cy="6" r="2"/>
+          <circle cx="6" cy="22" r="2"/><circle cx="22" cy="22" r="2"/><circle cx="38" cy="22" r="2"/><circle cx="54" cy="22" r="2"/>
+          <circle cx="6" cy="38" r="2"/><circle cx="22" cy="38" r="2"/><circle cx="38" cy="38" r="2"/><circle cx="54" cy="38" r="2"/>
+          <circle cx="6" cy="54" r="2"/><circle cx="22" cy="54" r="2"/><circle cx="38" cy="54" r="2"/><circle cx="54" cy="54" r="2"/>
+        </svg>
+      </span>
+      <span class="shape shape-ring"></span>
+    </div>
+    <div class="container">
+      <span class="eyebrow">Hướng dẫn cho người mới hoàn toàn</span>
+      <h1 class="hero-title">
+        Vibe coding với <em>Antigravity</em>.<br/>
+        Biến ý tưởng trong đầu thành sản phẩm thật.
+      </h1>
+      <p class="hero-sub">
+        Bạn chưa từng viết một dòng code? Không sao cả. Trang này sẽ đưa bạn đi từ khái niệm cơ bản nhất — frontend, backend, database là gì — cho đến cách dùng AI để dựng một sản phẩm nhỏ giải quyết công việc hàng ngày của chính bạn.
+      </p>
+      <div class="hero-cta">
+        <a href="#vibe" class="btn btn-primary">Đọc từ đầu</a>
+        <a href="#start" class="btn btn-ghost">Đi thẳng đến phần thực hành →</a>
+      </div>
+      <div class="hero-card" aria-hidden="true">
+        <div class="hero-card-row">
+          <span class="dot dot-r"></span>
+          <span class="dot dot-y"></span>
+          <span class="dot dot-g"></span>
+          <span class="hero-card-title">antigravity — new project</span>
+        </div>
+        <div class="hero-card-body">
+          <p class="prompt"><span class="prompt-arrow">›</span> Tôi muốn một app nhỏ để ghi lại các task lặp lại mỗi tuần và nhắc tôi vào sáng thứ Hai.</p>
+          <p class="response"><span class="response-dot"></span> Đã hiểu. Mình sẽ dựng:</p>
+          <ul class="response-list">
+            <li>Một trang nhập task (frontend)</li>
+            <li>Một service lưu task và gửi nhắc nhở (backend)</li>
+            <li>Một bảng dữ liệu để nhớ các task (database)</li>
+          </ul>
+          <p class="response-foot">Bắt đầu nhé?</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- What is vibe coding -->
+  <section id="vibe" class="section">
+    <div class="container narrow">
+      <span class="section-tag">Khái niệm 01</span>
+      <h2>Vibe coding là gì?</h2>
+      <p class="lead">
+        “Vibe coding” là cách lập trình mà bạn <strong>mô tả thứ bạn muốn bằng ngôn ngữ tự nhiên</strong>, và AI sẽ viết code thay cho bạn. Thay vì học cú pháp trước rồi mới làm được gì đó, bạn bắt đầu từ ý tưởng — và để AI lo phần “dịch” ý tưởng sang code.
+      </p>
+      <div class="callout">
+        <p><strong>Cách suy nghĩ mới:</strong> bạn không phải “người gõ code” nữa. Bạn là <em>người đặt vấn đề, mô tả cảm giác mong muốn, và đánh giá kết quả</em>. Code chỉ là phương tiện.</p>
+      </div>
+      <div class="two-col">
+        <div>
+          <h3>Cách cũ</h3>
+          <ul class="check-list muted">
+            <li>Học cú pháp, biến, vòng lặp trước</li>
+            <li>Tự nhớ tên hàm, thư viện</li>
+            <li>Sửa từng lỗi nhỏ bằng Google</li>
+            <li>Tốn nhiều tháng mới ra sản phẩm đầu tiên</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Vibe coding</h3>
+          <ul class="check-list">
+            <li>Bắt đầu bằng <em>“tôi muốn làm cái này…”</em></li>
+            <li>AI gợi ý cấu trúc, viết code, giải thích</li>
+            <li>Bạn đọc — chấp nhận hoặc bảo nó sửa</li>
+            <li>Có sản phẩm chạy được trong vài giờ</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Antigravity -->
+  <section class="section section-alt">
+    <div class="container narrow">
+      <span class="section-tag">Khái niệm 02</span>
+      <h2>Antigravity là gì?</h2>
+      <p class="lead">
+        Antigravity là một <strong>môi trường lập trình AI-native</strong> — nghĩa là AI không phải “tính năng thêm vào”, mà là <em>trung tâm</em> của trải nghiệm. Bạn không gõ code rồi nhờ AI gợi ý; bạn nói chuyện với AI, AI tạo file, chạy lệnh, kiểm tra kết quả, rồi báo lại cho bạn.
+      </p>
+      <div class="feature-grid">
+        <div class="feature">
+          <span class="feature-num">01</span>
+          <h4>Agent tự làm việc</h4>
+          <p>Bạn ra một yêu cầu, agent có thể đọc file, viết file, chạy lệnh terminal, mở trình duyệt — như một thực tập sinh siêng năng.</p>
+        </div>
+        <div class="feature">
+          <span class="feature-num">02</span>
+          <h4>Hiểu cả dự án</h4>
+          <p>Khác với chat thường, Antigravity “nhìn” được toàn bộ codebase, nên gợi ý của nó khớp với những gì bạn đã có.</p>
+        </div>
+        <div class="feature">
+          <span class="feature-num">03</span>
+          <h4>Bạn vẫn là người quyết định</h4>
+          <p>Mọi thay đổi đều hiện ra để bạn duyệt. Bạn nói “ok” hoặc “không, làm lại theo hướng khác”.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The 3 building blocks -->
+  <section id="stack" class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Nền tảng</span>
+        <h2>Mỗi sản phẩm phần mềm thường có 3 lớp</h2>
+        <p class="lead">Hiểu được 3 lớp này, bạn sẽ biết khi mô tả ý tưởng cho AI thì <em>nó đang nói về phần nào</em> — và không bị “lạc” khi sản phẩm lớn dần.</p>
+      </div>
+      <div class="stack-grid">
+        <article class="stack-card">
+          <div class="stack-icon stack-icon-fe" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="14" rx="2"/>
+              <path d="M3 9h18"/>
+              <circle cx="6.5" cy="6.5" r=".6" fill="currentColor"/>
+              <circle cx="8.5" cy="6.5" r=".6" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3>Frontend</h3>
+          <p class="stack-tag">Phần người dùng nhìn thấy</p>
+          <p>Là tất cả những gì hiện ra trên màn hình: nút bấm, ô nhập, màu sắc, bố cục. Nó “gói” sản phẩm trong một hình dạng mà con người tương tác được.</p>
+          <p class="stack-example"><strong>Ví dụ:</strong> trang bạn đang đọc, ứng dụng Grab khi bạn mở app, giao diện ChatGPT.</p>
+        </article>
+        <article class="stack-card">
+          <div class="stack-icon stack-icon-be" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 7c0-1.5 3.5-3 8-3s8 1.5 8 3-3.5 3-8 3-8-1.5-8-3z"/>
+              <path d="M4 7v5c0 1.5 3.5 3 8 3s8-1.5 8-3V7"/>
+              <path d="M4 12v5c0 1.5 3.5 3 8 3s8-1.5 8-3v-5"/>
+            </svg>
+          </div>
+          <h3>Backend</h3>
+          <p class="stack-tag">Phần xử lý phía sau</p>
+          <p>Khi bạn bấm nút, backend là “bộ não” quyết định nên làm gì: tính toán, kiểm tra, lưu lại, gọi dịch vụ khác. Người dùng không thấy nó nhưng không có nó thì frontend chỉ là cái vỏ.</p>
+          <p class="stack-example"><strong>Ví dụ:</strong> khi bạn đặt Grab, backend tìm tài xế gần nhất, tính giá, gửi thông báo.</p>
+        </article>
+        <article class="stack-card">
+          <div class="stack-icon stack-icon-db" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="5" rx="8" ry="3"/>
+              <path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/>
+              <path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/>
+            </svg>
+          </div>
+          <h3>Database</h3>
+          <p class="stack-tag">Nơi nhớ mọi thứ</p>
+          <p>Cái “sổ tay” của sản phẩm. Mọi thông tin cần giữ lại sau khi tắt app — tài khoản, đơn hàng, ghi chú — đều nằm ở đây. Tắt máy bật lại, dữ liệu vẫn còn nguyên.</p>
+          <p class="stack-example"><strong>Ví dụ:</strong> danh sách tin nhắn cũ của bạn trên Messenger, lịch sử đơn hàng trên Shopee.</p>
+        </article>
+      </div>
+      <div class="diagram" aria-hidden="true">
+        <div class="diagram-row">
+          <span class="diagram-node">👤 Người dùng</span>
+          <span class="diagram-arrow">↔</span>
+          <span class="diagram-node">Frontend</span>
+          <span class="diagram-arrow">↔</span>
+          <span class="diagram-node">Backend</span>
+          <span class="diagram-arrow">↔</span>
+          <span class="diagram-node">Database</span>
+        </div>
+        <p class="diagram-caption">Một luồng dữ liệu cơ bản — đa số sản phẩm đều theo mô hình này.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- From idea to product -->
+  <section id="idea" class="section section-alt has-memphis">
+    <div class="memphis-layer" aria-hidden="true">
+      <span class="memphis-shape memphis-dot memphis-dot--md memphis-dot--coral anim-float" style="top: 8%; left: 6%;"></span>
+      <span class="memphis-shape memphis-ring memphis-ring--md memphis-ring--moss anim-drift" style="top: 12%; right: 5%;"></span>
+      <span class="memphis-shape memphis-star memphis-star--lemon anim-spin" style="top: 56%; right: 4%;"></span>
+      <span class="memphis-shape memphis-tri anim-float-rev anim-delay-2" style="bottom: 18%; left: 4%;"></span>
+      <span class="memphis-shape memphis-dot memphis-dot--sm memphis-dot--plum anim-drift anim-delay-1" style="top: 40%; left: 3%;"></span>
+      <span class="memphis-shape memphis-dot memphis-dot--md memphis-dot--sky anim-float anim-delay-3" style="bottom: 10%; right: 8%;"></span>
+    </div>
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Tư duy sản phẩm</span>
+        <h2>Cách build up một ý tưởng từ suy nghĩ rất cơ bản</h2>
+        <p class="lead">Hầu hết ý tưởng tốt không đến từ “tôi muốn làm startup”. Chúng đến từ một <em>cảm giác bực bội nhỏ</em> trong công việc hàng ngày. Đây là cách biến cảm giác đó thành sản phẩm.</p>
+      </div>
+      <ol class="steps">
+        <li class="step">
+          <span class="step-num">1</span>
+          <div>
+            <h3>Bắt đầu từ <em>“tôi đang mất thời gian vào…”</em></h3>
+            <p>Quan sát một tuần làm việc. Việc nào bạn lặp đi lặp lại? Việc nào làm bạn khó chịu? Việc nào bạn phải copy-paste qua lại giữa các công cụ?</p>
+            <p class="step-ex">Ví dụ: <em>“Mỗi sáng tôi mất 15 phút mở 4 tab khác nhau để gom report.”</em></p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">2</span>
+          <div>
+            <h3>Mô tả “sản phẩm trong mơ” bằng một câu</h3>
+            <p>Không nghĩ đến công nghệ. Chỉ nói: <em>“Giá mà có cái gì đó tự động làm X giúp tôi.”</em> Một câu duy nhất.</p>
+            <p class="step-ex">Ví dụ: <em>“Giá mà có một trang web tự gom 4 report đó lại thành một bảng mỗi sáng 8h.”</em></p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">3</span>
+          <div>
+            <h3>Cắt nhỏ thành các “hành động”</h3>
+            <p>Tách câu đó ra thành các động từ: <em>lấy dữ liệu, gom lại, hiển thị, gửi đi…</em> Mỗi động từ là một bước AI có thể làm cho bạn.</p>
+            <p class="step-ex">Lấy data từ Sheet → đọc giá trị → tổng hợp → hiển thị bảng → gửi email lúc 8h.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">4</span>
+          <div>
+            <h3>Xác định 3 lớp ở đâu</h3>
+            <p>Nhìn lại 3 khối: phần nào là <strong>frontend</strong> (người dùng nhìn), <strong>backend</strong> (xử lý logic), <strong>database</strong> (cần nhớ gì).</p>
+            <p class="step-ex">Trang xem report = frontend. Job chạy 8h sáng = backend. Lịch sử report cũ = database.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">5</span>
+          <div>
+            <h3>Làm <em>phiên bản tệ nhất có thể chạy được</em></h3>
+            <p>Đừng cầu toàn. Mục tiêu của ngày đầu là: <em>chạy được</em>, dù xấu, dù chỉ chạy cho mình bạn. Đẹp và đúng để sau.</p>
+            <p class="step-ex">Phiên bản 1: chỉ một trang HTML hiện 4 con số. Đó là đủ.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">6</span>
+          <div>
+            <h3>Dùng thử — rồi sửa theo cảm giác</h3>
+            <p>Dùng nó 2–3 ngày. Cái gì khó chịu, cái gì thiếu? Quay lại nói với AI: <em>“Thêm cái này, bỏ cái kia.”</em> Đây là vòng lặp <strong>vibe</strong> thật sự.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Ideas for GHN managers -->
+  <section id="examples" class="section has-memphis">
+    <div class="memphis-layer" aria-hidden="true">
+      <span class="memphis-shape memphis-dot memphis-dot--lg memphis-dot--coral anim-float" style="top: 4%; left: 4%;"></span>
+      <span class="memphis-shape memphis-ring memphis-ring--md memphis-ring--plum anim-drift" style="top: 8%; right: 6%;"></span>
+      <span class="memphis-shape memphis-plus memphis-plus--moss anim-wobble" style="top: 32%; left: 2%; position: absolute;"></span>
+      <span class="memphis-shape memphis-star memphis-star--sand anim-spin" style="top: 70%; right: 4%;"></span>
+      <span class="memphis-shape memphis-tri memphis-tri--coral anim-float-rev anim-delay-1" style="bottom: 12%; left: 7%;"></span>
+      <span class="memphis-shape memphis-dot memphis-dot--md memphis-dot--sky anim-float anim-delay-2" style="bottom: 6%; right: 10%;"></span>
+      <span class="memphis-shape memphis-dot memphis-dot--sm memphis-dot--lemon anim-drift anim-delay-3" style="top: 50%; right: 3%;"></span>
+    </div>
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Gợi ý ý tưởng</span>
+        <h2>Một vài ý tưởng để bắt đầu</h2>
+        <p class="lead">Công việc xoay quanh số liệu vận hành, nhân sự, báo cáo mỗi ngày — đó là <em>mảnh đất màu mỡ nhất</em> cho vibe coding. Vài hướng dưới đây chỉ là gợi ý mở đầu. <strong>Chính bạn mới là người hiểu rõ vấn đề của mình nhất — và cũng là người duy nhất có thể tạo ra giải pháp phù hợp nhất cho công việc của chính bạn.</strong></p>
+      </div>
+
+      <div class="idea-grid">
+        <article class="idea-card">
+          <span class="idea-icon" aria-hidden="true">📊</span>
+          <h3>Dashboard KPI vận hành</h3>
+          <p class="idea-meta">Tổng hợp dữ liệu sẵn có</p>
+          <p>Gom KPI của nhiều bưu cục/khu vực — đơn giao, SLA on-time, tỉ lệ hoàn, tỉ lệ pickup — vào một trang duy nhất. Đổi màu cảnh báo theo ngưỡng. Mở mỗi sáng là thấy ngay khu vực nào đang đỏ.</p>
+          <div class="idea-tags"><span>Sheet</span><span>Chart</span><span>Filter</span></div>
+        </article>
+
+        <article class="idea-card">
+          <span class="idea-icon" aria-hidden="true">🤖</span>
+          <h3>Bot Telegram cảnh báo SLA</h3>
+          <p class="idea-meta">Tự động đẩy thông báo</p>
+          <p>Mỗi giờ kiểm tra SLA giao hàng. Khi tỉ lệ rớt dưới ngưỡng (vd. 90%), bot tự gửi tin nhắn vào group team — kèm tên bưu cục cụ thể, số đơn ảnh hưởng. Không cần ai ngồi canh dashboard.</p>
+          <div class="idea-tags"><span>Telegram Bot</span><span>Cron</span><span>API</span></div>
+        </article>
+
+        <article class="idea-card">
+          <span class="idea-icon" aria-hidden="true">📨</span>
+          <h3>Auto report sáng thứ Hai qua GTalk</h3>
+          <p class="idea-meta">Lặp lại + chuẩn hóa</p>
+          <p>8h sáng thứ Hai, hệ thống tự tổng hợp số liệu tuần trước (volume, doanh thu, headcount active, OT), format đẹp, gửi vào group GTalk của team. Không phải nhắc, không bị quên, ai cũng đọc cùng một bản.</p>
+          <div class="idea-tags"><span>Scheduler</span><span>GTalk</span><span>Template</span></div>
+        </article>
+
+        <article class="idea-card">
+          <span class="idea-icon" aria-hidden="true">👥</span>
+          <h3>Tracker nhân sự real-time</h3>
+          <p class="idea-meta">HR data + drill-down</p>
+          <p>Một trang nội bộ thấy ngay: headcount active từng bưu cục, chấm công hôm nay, đơn nghỉ phép pending, turnover rate tháng. Click vào con số bất kỳ để drill-down xem chi tiết từng nhân sự.</p>
+          <div class="idea-tags"><span>HR data</span><span>Realtime</span><span>Drill-down</span></div>
+        </article>
+
+        <article class="idea-card">
+          <span class="idea-icon" aria-hidden="true">💬</span>
+          <h3>Bot gom ý kiến team qua GTalk</h3>
+          <p class="idea-meta">Survey nhẹ + tổng hợp AI</p>
+          <p>Cuối ngày, bot GTalk hỏi từng nhân sự: <em>"Hôm nay khó khăn gì, đề xuất gì?"</em> Câu trả lời được lưu lại, AI tự gắn thẻ (vận hành / nhân sự / tool / khác). Cuối tuần bạn nhận insight đã phân nhóm sẵn — không phải đọc 200 tin nhắn.</p>
+          <div class="idea-tags"><span>GTalk Bot</span><span>NLP</span><span>Sheet</span></div>
+        </article>
+
+        <article class="idea-card">
+          <span class="idea-icon" aria-hidden="true">🔔</span>
+          <h3>Cảnh báo bất thường</h3>
+          <p class="idea-meta">Anomaly detection nhẹ</p>
+          <p>Khi một bưu cục có số lệch xa trung bình (hoàn đơn đột nhiên cao gấp 3, OT vượt ngưỡng, đơn ùn tắc), bot tự ping bạn vào Telegram kèm dữ liệu so sánh. Bạn không cần đọc 50 dòng Excel mỗi sáng để soi ra bất thường nữa.</p>
+          <div class="idea-tags"><span>Stats</span><span>Alert</span><span>Telegram</span></div>
+        </article>
+      </div>
+
+      <div class="idea-recipe">
+        <div class="memphis-layer" aria-hidden="true">
+          <span class="memphis-shape memphis-dot memphis-dot--md memphis-dot--coral anim-float" style="top: 14%; right: 8%;"></span>
+          <span class="memphis-shape memphis-dot memphis-dot--sm memphis-dot--lemon anim-drift anim-delay-1" style="top: 22%; right: 22%;"></span>
+          <span class="memphis-shape memphis-ring memphis-ring--sm memphis-ring--cream anim-float-rev anim-delay-2" style="bottom: 18%; right: 12%;"></span>
+          <span class="memphis-shape memphis-plus memphis-plus--cream anim-wobble" style="top: 60%; right: 4%;"></span>
+          <span class="memphis-shape memphis-star memphis-star--lemon anim-spin" style="bottom: 14%; left: 4%;"></span>
+          <span class="memphis-shape memphis-dot memphis-dot--sm memphis-dot--cream anim-float anim-delay-3" style="top: 12%; left: 16%;"></span>
+          <span class="memphis-shape memphis-tri memphis-tri--coral anim-drift anim-delay-2" style="top: 70%; left: 24%;"></span>
+        </div>
+        <h3>Công thức biến việc lặp thành sản phẩm</h3>
+        <p class="recipe-intro">Mọi ý tưởng ở trên đều theo cùng một công thức 3 bước. Áp dụng được cho bất kỳ việc bạn đang làm tay mỗi ngày.</p>
+        <div class="recipe-row">
+          <div class="recipe-cell">
+            <span class="recipe-num">1</span>
+            <strong>Việc tay đang làm</strong>
+            <p>Mỗi sáng bạn đang mở file gì? Copy gì? Gửi cho ai? Tốn bao nhiêu phút?</p>
+          </div>
+          <span class="recipe-arrow" aria-hidden="true">→</span>
+          <div class="recipe-cell">
+            <span class="recipe-num">2</span>
+            <strong>AI thay vào đâu</strong>
+            <p>Phần nào máy có thể làm? Thường là: gom data, format, gửi đi, cảnh báo.</p>
+          </div>
+          <span class="recipe-arrow" aria-hidden="true">→</span>
+          <div class="recipe-cell">
+            <span class="recipe-num">3</span>
+            <strong>Tự động hóa</strong>
+            <p>Chạy định kỳ. Đẩy kết quả qua kênh bạn đang dùng — Telegram, GTalk, email.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="growth-tips">
+        <h3>5 mẹo phát triển ý tưởng</h3>
+        <ul class="tip-list">
+          <li><strong>Viết ra 3 thứ làm bạn bực tuần này.</strong> Càng cụ thể càng tốt: <em>"Sáng thứ Ba mất 30 phút tổng hợp report cho sếp"</em> tốt hơn <em>"báo cáo mất thời gian"</em>.</li>
+          <li><strong>Chọn việc có data sẵn.</strong> Ưu tiên thứ mà số liệu đã nằm trong Sheet, hệ thống nội bộ, hay export được. Không có data thì AI cũng không tạo ra phép màu.</li>
+          <li><strong>Bắt đầu nhỏ — phục vụ chính bạn trước.</strong> Đừng nghĩ <em>"tool cho cả công ty"</em>. Hãy nghĩ <em>"tool giúp tôi sáng mai không phải làm việc X"</em>. Khi nó tốt, người khác sẽ tự hỏi xin.</li>
+          <li><strong>Hỏi: ai khác có cùng nỗi đau?</strong> Nếu trưởng phòng vận hành nào cũng tổng hợp KPI mỗi sáng, sản phẩm của bạn không chỉ tiết kiệm 30 phút — mà 30 phút × N người × N ngày.</li>
+          <li><strong>Đo bằng thời gian tiết kiệm, không bằng đẹp xấu.</strong> Phiên bản 1 có thể xấu, nhưng nếu nó cắt 20 phút mỗi sáng — đó là 80 giờ/năm bạn được trả lại. Đẹp là chuyện của tháng sau.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Getting started -->
+  <section id="start" class="section">
+    <div class="container narrow">
+      <span class="section-tag">Thực hành</span>
+      <h2>Bắt đầu với Antigravity trong 5 phút</h2>
+      <p class="lead">Không cần học gì trước. Chỉ cần một ý tưởng và sự sẵn lòng nói chuyện với AI như nói chuyện với một đồng nghiệp mới.</p>
+
+      <div class="howto">
+        <div class="howto-step">
+          <span class="howto-tag">Bước 1</span>
+          <h4>Tải và mở Antigravity</h4>
+          <p>Mở Antigravity, tạo một project trống. Cứ tưởng tượng đây là một tờ giấy trắng — chưa có gì cả.</p>
+        </div>
+        <div class="howto-step">
+          <span class="howto-tag">Bước 2</span>
+          <h4>Viết prompt theo chuẩn <em>CAO</em> — Context, Action, Output</h4>
+          <p>Một prompt tốt không phải dài, mà <strong>đủ</strong>. Cấu trúc <strong>CAO</strong> giúp bạn nói đủ thông tin để AI hiểu ngay từ lần đầu, không phải đoán mò rồi sửa nhiều vòng.</p>
+
+          <div class="cao-grid">
+            <div class="cao-item">
+              <span class="cao-letter">C</span>
+              <div>
+                <h5>Context — Bối cảnh</h5>
+                <p>Bạn là ai, làm ở đâu? Việc này phục vụ ai? Dữ liệu sẵn có nằm ở đâu? Hiện đang làm tay như thế nào?</p>
+              </div>
+            </div>
+            <div class="cao-item">
+              <span class="cao-letter">A</span>
+              <div>
+                <h5>Action — Hành động</h5>
+                <p>Cụ thể AI cần làm gì? Tạo file, đọc data, format, gửi đi đâu? Mô tả từng bước như giao việc cho thực tập sinh.</p>
+              </div>
+            </div>
+            <div class="cao-item">
+              <span class="cao-letter">O</span>
+              <div>
+                <h5>Output — Kết quả</h5>
+                <p>Kết quả cuối trông như thế nào? Định dạng gì, chạy ở đâu, ai dùng? Càng rõ, AI càng đỡ tự sáng tạo lệch hướng.</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="howto-note">Ví dụ một prompt CAO hoàn chỉnh cho công việc quản lý vận hành tại GHN:</p>
+
+          <pre class="code-block"><span class="code-section">[CONTEXT — Bối cảnh]</span>
+Tôi là Trưởng phòng Vận hành khu vực miền Nam tại GHN.
+Mỗi sáng tôi cần xem KPI giao hàng của 12 bưu cục:
+số đơn giao, tỉ lệ SLA on-time, tỉ lệ hoàn.
+Dữ liệu nằm sẵn trong Google Sheet tổng hợp
+(https://docs.google.com/spreadsheets/d/SHEET_ID/...).
+Hiện tại tôi đang copy thủ công mỗi sáng, mất ~20 phút.
+Tôi không phải dân kỹ thuật — vui lòng giải thích đơn giản.
+
+<span class="code-section">[ACTION — Việc cần làm]</span>
+Tạo một dashboard web đơn giản:
+1. Đọc dữ liệu trực tiếp từ Google Sheet ở trên
+2. Hiển thị bảng KPI theo bưu cục, sort theo SLA giảm dần
+3. Tô màu cảnh báo: SLA &lt; 90% nền đỏ nhạt, &lt; 95% nền vàng
+4. Có nút "Gửi báo cáo" — gửi tóm tắt (3 bưu cục tệ nhất
+   và 3 tốt nhất) vào group Telegram của team
+5. Tự refresh dữ liệu mỗi 30 phút
+
+<span class="code-section">[OUTPUT — Kết quả mong muốn]</span>
+- Một trang HTML chạy trực tiếp trên trình duyệt (Chrome)
+- Tách phần CONFIG (Sheet ID, Telegram bot token, chat ID)
+  thành block riêng ở đầu file để tôi tự sửa được
+- Kèm 3 dòng hướng dẫn bằng tiếng Việt:
+  cách lấy Sheet ID, tạo bot Telegram, và lấy chat ID của group
+- Viết cho người không biết code — chú thích rõ ràng</pre>
+
+          <p class="howto-foot">Tip: dán nguyên prompt này vào agent. Khi nó hỏi lại để xác nhận, bạn biết là đã đủ thông tin. Khi nó <em>không hỏi</em> mà làm thẳng — càng tốt.</p>
+        </div>
+        <div class="howto-step">
+          <span class="howto-tag">Bước 3</span>
+          <h4>Đọc phản hồi — đừng sợ</h4>
+          <p>AI sẽ tạo file, viết code, có thể chạy thử. Bạn không cần hiểu hết từng dòng. Chỉ cần hỏi: <em>“Cái này làm gì?”</em> nếu bạn tò mò chỗ nào.</p>
+        </div>
+        <div class="howto-step">
+          <span class="howto-tag">Bước 4</span>
+          <h4>Mở thử — và phản hồi</h4>
+          <p>Chạy thử sản phẩm. Cái gì sai? Cái gì xấu? Quay lại nói với agent: <em>“Cho cái nút màu xanh, đặt ở giữa, và thêm chỗ xóa từng dòng.”</em></p>
+        </div>
+        <div class="howto-step">
+          <span class="howto-tag">Bước 5</span>
+          <h4>Lặp lại cho đến khi bạn hài lòng</h4>
+          <p>Đây là vibe coding. Bạn không “xong” một phát; bạn <em>nắn dần</em> sản phẩm theo cảm giác — cho đến khi nó vừa với cuộc sống của bạn.</p>
+        </div>
+      </div>
+
+      <div class="tips">
+        <h3>5 mẹo nhỏ cho người mới</h3>
+        <ul class="tip-list">
+          <li><strong>Nói chuyện đầy đủ.</strong> “Làm trang đăng nhập” thiếu thông tin. “Trang đăng nhập bằng email, có nút quên mật khẩu, màu chủ đạo cam ấm” mới đủ để AI hiểu.</li>
+          <li><strong>Sai thì cứ nói thẳng.</strong> Không cần lịch sự với AI. “Cái này sai rồi, làm lại — tôi muốn X chứ không phải Y.”</li>
+          <li><strong>Đừng nhảy quá xa.</strong> Mỗi lần yêu cầu một việc nhỏ. Sửa từng bước dễ hơn sửa cả mớ rối.</li>
+          <li><strong>Hỏi “tại sao” khi tò mò.</strong> AI sẽ giải thích. Đây là cách bạn dần học code mà không phải đi học.</li>
+          <li><strong>Lưu lại bản chạy được.</strong> Trước khi sửa lớn, lưu lại. Nếu hỏng, bạn quay về được.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sharing / deployment -->
+  <section id="share" class="section section-alt has-memphis">
+    <div class="memphis-layer" aria-hidden="true">
+      <span class="memphis-shape memphis-dot memphis-dot--lg memphis-dot--plum anim-float" style="top: 6%; right: 5%;"></span>
+      <span class="memphis-shape memphis-ring memphis-ring--md memphis-ring--coral anim-float-rev" style="top: 14%; left: 4%;"></span>
+      <span class="memphis-shape memphis-star memphis-star--sand anim-spin" style="top: 48%; left: 3%;"></span>
+      <span class="memphis-shape memphis-plus memphis-plus--coral anim-wobble" style="top: 38%; right: 3%; position: absolute;"></span>
+      <span class="memphis-shape memphis-tri memphis-tri--plum anim-drift anim-delay-1" style="bottom: 16%; right: 6%;"></span>
+      <span class="memphis-shape memphis-dot memphis-dot--md memphis-dot--moss anim-float anim-delay-2" style="bottom: 8%; left: 6%;"></span>
+    </div>
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Chia sẻ với đồng nghiệp</span>
+        <h2>Làm sao để mọi người cùng dùng được?</h2>
+        <p class="lead">Đến đây bạn đã có một sản phẩm chạy được trên máy mình. Nhưng nếu cứ phải mở file trên máy bạn thì chỉ một mình bạn dùng được. Để đồng nghiệp mở bằng <em>một cái link</em> — giống như mở Google Doc — bạn cần "đưa nó lên internet". Nghe có vẻ kỹ thuật, nhưng thật ra chỉ tốn vài phút và không cần biết gì về server.</p>
+      </div>
+
+      <div class="share-grid">
+        <article class="share-card">
+          <div class="share-card-head">
+            <span class="share-logo share-logo-netlify" aria-hidden="true">◆</span>
+            <div>
+              <h3>Netlify Drop</h3>
+              <p class="share-meta">Kéo & thả là xong · ~1 phút</p>
+            </div>
+          </div>
+          <p>Cách nhanh nhất — không cần đăng ký, không cần tài khoản. Mở Netlify Drop, kéo cả thư mục code vào, nhận ngay một link kiểu <code>amber-otter-1234.netlify.app</code> để gửi đồng nghiệp.</p>
+          <ul class="share-pros">
+            <li>Không cần đăng ký nếu chỉ thử nhanh</li>
+            <li>Free hoàn toàn — không giới hạn lượt xem</li>
+            <li>Phù hợp khi muốn demo nhanh cho 1–2 người</li>
+          </ul>
+
+          <details class="share-detail">
+            <summary>Xem hướng dẫn từng bước</summary>
+            <ol class="share-steps">
+              <li>Mở <a href="https://app.netlify.com/drop" target="_blank" rel="noopener">app.netlify.com/drop</a> trên trình duyệt (Chrome, Safari đều được).</li>
+              <li>Trên máy bạn, tìm thư mục project (thư mục chứa file <code>index.html</code>).</li>
+              <li>Kéo cả thư mục vào ô lớn ở giữa trang Netlify Drop. Đợi 5–10 giây.</li>
+              <li>Bạn nhận được link kiểu <code>amber-otter-1234.netlify.app</code>. Copy — paste vào Telegram/GTalk cho đồng nghiệp.</li>
+              <li>Muốn link cũ giữ nguyên khi cập nhật? Đăng ký tài khoản miễn phí (1 phút) — từ lần sau kéo-thả vẫn cùng link.</li>
+            </ol>
+            <p class="share-tip"><strong>Khi nào nên dùng Netlify Drop?</strong> Khi bạn chỉ muốn gửi demo nhanh cho 1–2 đồng nghiệp xem thử. Khi sản phẩm bắt đầu được dùng thường xuyên — chuyển qua Vercel hoặc GitHub Pages cho bền vững hơn.</p>
+            <p class="share-ref">→ Tài liệu: <a href="https://docs.netlify.com/site-deploys/create-deploys/" target="_blank" rel="noopener">docs.netlify.com</a> · <a href="https://docs.netlify.com/security/secure-access-to-sites/" target="_blank" rel="noopener">password protection</a></p>
+          </details>
+        </article>
+
+        <article class="share-card">
+          <div class="share-card-head">
+            <span class="share-logo share-logo-vercel" aria-hidden="true">▲</span>
+            <div>
+              <h3>Vercel</h3>
+              <p class="share-meta">Linh hoạt · ~3 phút</p>
+            </div>
+          </div>
+          <p>Đăng ký, kéo thư mục code vào — Vercel tự deploy và trả về một link kiểu <code>vibe-dashboard.vercel.app</code>. Sửa code → tự deploy lại, link không đổi. Đồng nghiệp không bao giờ phải đổi bookmark.</p>
+          <ul class="share-pros">
+            <li>Miễn phí cho cá nhân — không giới hạn lượt xem</li>
+            <li>Có analytics nhẹ: ai đã mở, bao nhiêu lượt</li>
+            <li>Gắn domain riêng được (vd. <code>dashboard.team.com</code>)</li>
+          </ul>
+
+          <details class="share-detail">
+            <summary>Xem hướng dẫn từng bước</summary>
+            <ol class="share-steps">
+              <li>Vào <a href="https://vercel.com/signup" target="_blank" rel="noopener">vercel.com/signup</a> — đăng ký bằng email hoặc GitHub. Miễn phí, không cần thẻ.</li>
+              <li>Bấm <strong>Add New → Project</strong>. Với code HTML/CSS/JS thuần, bạn kéo thẳng cả thư mục vào ô upload.</li>
+              <li>Đợi ~30 giây. Vercel deploy xong, trả link <code>your-project.vercel.app</code>. Copy — gửi đồng nghiệp.</li>
+              <li>Mỗi lần sửa: kéo thả lại, hoặc nối với GitHub để tự sync. Link cũ luôn giữ nguyên.</li>
+              <li>Muốn domain riêng? Vào <strong>Settings → Domains</strong>, làm theo 2–3 bước Vercel hướng dẫn.</li>
+            </ol>
+            <p class="share-tip"><strong>Mẹo lười:</strong> bảo agent Antigravity <em>"deploy cái này lên Vercel cho tôi"</em>. Nó chạy lệnh <code>vercel</code> giúp — đăng nhập một lần, lần sau chỉ một câu là deploy xong.</p>
+            <p class="share-ref">→ Tài liệu: <a href="https://vercel.com/docs/getting-started-with-vercel" target="_blank" rel="noopener">vercel.com/docs/getting-started</a> · <a href="https://vercel.com/docs/deployments/overview" target="_blank" rel="noopener">deployments</a></p>
+          </details>
+        </article>
+
+        <article class="share-card">
+          <div class="share-card-head">
+            <span class="share-logo share-logo-github" aria-hidden="true">◐</span>
+            <div>
+              <h3>GitHub Pages</h3>
+              <p class="share-meta">Bền vững · ~10 phút lần đầu</p>
+            </div>
+          </div>
+          <p>Free hoàn toàn, host trên hạ tầng GitHub. Hơi kỹ thuật hơn — phải "đẩy code lên GitHub" trước — nhưng đổi lại có lịch sử thay đổi, mời đồng nghiệp cùng sửa được, và link bền vững nhiều năm.</p>
+          <ul class="share-pros">
+            <li>Miễn phí, không giới hạn lượt xem</li>
+            <li>Version history — quay về bản cũ nếu hỏng</li>
+            <li>Team đóng góp code được (kiểu Google Doc cho code)</li>
+          </ul>
+
+          <details class="share-detail">
+            <summary>Xem hướng dẫn từng bước</summary>
+            <ol class="share-steps">
+              <li>Đăng ký tài khoản tại <a href="https://github.com/signup" target="_blank" rel="noopener">github.com/signup</a> (miễn phí).</li>
+              <li>Tạo repository mới — bấm nút <strong>New</strong> bên trái. Tên ví dụ <code>vibe-dashboard</code>, để <strong>Public</strong>.</li>
+              <li>Bảo agent: <em>"Đẩy code này lên GitHub repo XYZ của tôi"</em>. Agent sẽ chạy các lệnh <code>git</code> giúp bạn.</li>
+              <li>Trong repo, vào <strong>Settings → Pages</strong>. Chọn branch <code>main</code>, folder <code>/ (root)</code>. Bấm <strong>Save</strong>.</li>
+              <li>Đợi 1–2 phút. Link sẽ hiện tại Pages, dạng <code>username.github.io/vibe-dashboard</code>.</li>
+              <li>Sau này: mỗi commit mới đẩy lên → trang tự update sau ~1 phút.</li>
+            </ol>
+            <p class="share-tip"><strong>Thấy <code>git</code> khó nhớ?</strong> Tải <a href="https://desktop.github.com/" target="_blank" rel="noopener">GitHub Desktop</a> — app giao diện đồ hoạ, click-and-go, không cần gõ lệnh terminal nào.</p>
+            <p class="share-ref">→ Tài liệu: <a href="https://docs.github.com/en/pages/quickstart-for-pages" target="_blank" rel="noopener">docs.github.com/en/pages/quickstart</a> · <a href="https://docs.github.com/en/get-started/quickstart/hello-world" target="_blank" rel="noopener">git basics</a></p>
+          </details>
+        </article>
+      </div>
+
+      <div class="callout share-callout">
+        <p><strong>Bạn không cần nhớ chi tiết từng cái.</strong> Chỉ cần nói với agent: <em>"Tôi muốn đưa sản phẩm này lên internet để gửi đồng nghiệp — cách đơn giản nhất là gì?"</em> Nó sẽ chọn phương án phù hợp và dắt bạn từng bước. Lỡ bí, copy-paste lỗi gặp phải vào chat — AI sẽ debug giúp.</p>
+      </div>
+
+      <div class="share-warning">
+        <div class="share-warning-head">
+          <span class="share-warning-icon" aria-hidden="true">⚠</span>
+          <h4>Một lưu ý quan trọng về dữ liệu nội bộ</h4>
+        </div>
+        <p>Sản phẩm của bạn có thể đụng đến số liệu nhạy cảm: KPI vận hành, doanh thu, thông tin nhân sự, headcount. <strong>Đừng để link công khai trên internet ai cũng vào xem được.</strong></p>
+        <ul class="share-warning-list">
+          <li><strong>Chia sẻ link riêng:</strong> chỉ gửi cho người trong team, đừng post vào kênh công khai hoặc social.</li>
+          <li><strong>Thêm mật khẩu trang:</strong> bảo agent <em>"thêm một lớp mật khẩu đơn giản trước khi vào trang"</em> — chỉ ai biết mật khẩu mới mở được.</li>
+          <li><strong>Hỏi team IT:</strong> nếu dữ liệu rất nhạy cảm, hỏi xem GHN có hỗ trợ host nội bộ không. Antigravity vẫn build code bình thường — chỉ là deploy ở môi trường internal của công ty.</li>
+        </ul>
+      </div>
+
+      <div class="share-howshare">
+        <h3>Khi đã có link — chia sẻ thế nào để có người dùng thật?</h3>
+        <div class="share-channels">
+          <span class="share-channel">📱 Paste vào group Telegram team</span>
+          <span class="share-channel">💬 Đẩy lên GTalk phòng/khu vực</span>
+          <span class="share-channel">📝 Nhúng vào meeting notes</span>
+          <span class="share-channel">📚 Để vào Notion/Confluence team</span>
+          <span class="share-channel">⭐ Bookmark Chrome — mở mỗi sáng</span>
+        </div>
+        <p class="share-final"><strong>Mẹo cuối:</strong> lần đầu chia sẻ, demo trực tiếp 2 phút cho 1–2 đồng nghiệp gần nhất. Họ thấy giá trị → tự kéo người khác vào dùng. Tốt hơn nhiều so với gửi link kèm 5 đoạn giải thích mà chẳng ai đọc.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing -->
+  <section class="section section-closing">
+    <div class="closing-shapes" aria-hidden="true">
+      <span class="shape c-circle"></span>
+      <span class="shape c-ring"></span>
+      <span class="shape c-triangle"></span>
+      <span class="shape c-squiggle">
+        <svg viewBox="0 0 120 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+          <path d="M2 12 Q 17 2, 32 12 T 62 12 T 92 12 T 118 12" />
+        </svg>
+      </span>
+      <span class="shape c-dot-grid">
+        <svg viewBox="0 0 80 80" fill="currentColor" aria-hidden="true">
+          <circle cx="6" cy="6" r="2"/><circle cx="22" cy="6" r="2"/><circle cx="38" cy="6" r="2"/><circle cx="54" cy="6" r="2"/><circle cx="70" cy="6" r="2"/>
+          <circle cx="6" cy="22" r="2"/><circle cx="22" cy="22" r="2"/><circle cx="38" cy="22" r="2"/><circle cx="54" cy="22" r="2"/><circle cx="70" cy="22" r="2"/>
+          <circle cx="6" cy="38" r="2"/><circle cx="22" cy="38" r="2"/><circle cx="38" cy="38" r="2"/><circle cx="54" cy="38" r="2"/><circle cx="70" cy="38" r="2"/>
+          <circle cx="6" cy="54" r="2"/><circle cx="22" cy="54" r="2"/><circle cx="38" cy="54" r="2"/><circle cx="54" cy="54" r="2"/><circle cx="70" cy="54" r="2"/>
+          <circle cx="6" cy="70" r="2"/><circle cx="22" cy="70" r="2"/><circle cx="38" cy="70" r="2"/><circle cx="54" cy="70" r="2"/><circle cx="70" cy="70" r="2"/>
+        </svg>
+      </span>
+    </div>
+    <div class="container narrow center">
+      <h2>Điều quan trọng nhất</h2>
+      <p class="lead big">
+        Bạn không cần trở thành lập trình viên để tạo ra phần mềm nữa.<br/>
+        Bạn chỉ cần biết <em>mình muốn gì</em>, và đủ kiên nhẫn để nói rõ điều đó.
+      </p>
+      <a href="#vibe" class="btn btn-primary">Đọc lại từ đầu</a>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
